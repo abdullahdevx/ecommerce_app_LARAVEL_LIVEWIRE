@@ -8,7 +8,7 @@
         <b><h1 class="text-xl font-bold">Description</h1></b>
           {{$product->description}}
         <br>
-      <button class="bg-blue-500 text-white px-4 py-2 mt-1 rounded-md hover:bg-blue-600" wire:click="addtoCart({{$product->id}})" >Add to Cart</button>
+      <button class="bg-blue-500 text-white px-4 py-2 mt-1 rounded-md hover:bg-blue-600" wire:click="addToCart({{$product->id}})" >Add to Cart</button>
     </div>
 
     </div>

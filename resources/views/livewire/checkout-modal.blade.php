@@ -1,5 +1,7 @@
 
 <div 
+class="fixed z-50 inset-0 backdrop-blur-lg "
+
     x-data = "{ show : false}"
     x-show = "show"
     x-on:open-modal.window = "show = true"

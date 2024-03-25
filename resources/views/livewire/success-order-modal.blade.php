@@ -14,8 +14,8 @@
    x-transition:leave="transition ease-in duration-300"
    x-transition:leave-start="opacity-100"
    x-transition:leave-end="opacity-0"
-   >
-   
+     >
+     
     <div class="fixed inset-0 opacity-100 ">
       
         <div class=" bg-white rounded m-auto fixed inset-0 max-w-2xl" style="max-height:270px; max-width:500px; top:1%; left:10%;">

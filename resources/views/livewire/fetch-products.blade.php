@@ -19,7 +19,7 @@
         <br><br>
          <h3 class="text-lg font-bold mt-2">{{$products->title}}</h3>
           <p  class="text-gray-500" >&nbsp;{{number_format($products->price)}} rs</p>
-          &nbsp;<button class="bg-blue-500 text-white px-4 py-2 mt-1 rounded-md hover:bg-blue-600" wire:click.prevent="addtoCart({{$products->id}})">Add to Cart</button>
+          &nbsp;<button class="bg-blue-500 text-white px-4 py-2 mt-1 rounded-md hover:bg-blue-600" wire:click.stop="addtoCart({{$products->id}})">Add to Cart</button>
         </div>
     {{-- </div> --}}
         @endforeach 
