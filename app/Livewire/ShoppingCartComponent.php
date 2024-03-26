@@ -9,20 +9,13 @@ use App\Models\shoppingCart;
 
 class ShoppingCartComponent extends Component
 {
-    // protected $listeners = ['navigated'=>'render'];
     public $item;
-    // public $Total = 0;
     public $subTotal = 0;
     
-
-    // public function totalPrice()
-    // {
-    //     ($item as $item)
-    //     {
-    //         $this->subTotal = $item->product->price * $item->quantity;
-            
-    //     }
-    // }
+    public function sendPaymentEvent()
+    {
+        $this->dispatch('paymentEvent');
+    }
 
     public function incrementQty($id)
     {
@@ -53,14 +46,7 @@ class ShoppingCartComponent extends Component
         $this->dispatch('updateCount');
     }
 
-    // #[On('updateCart')]
-
-    // public function refresh()
-    // {
-    //     $this->item = shoppingCart::with('product')->where('user_id', auth()->user()->id)->get();
-    // }
-
-    // #[On('navigated')]
+ 
     public function render()
     {
         $this->item = shoppingCart::with('product')->where('user_id', auth()->user()->id)->get();
