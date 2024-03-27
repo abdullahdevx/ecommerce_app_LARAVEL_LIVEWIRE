@@ -35,7 +35,7 @@ class PaymentController extends Component
                         'currency' => 'pkr',
                         'product_data' => [
                            
-                            'name' => $titles,
+                            'name' => 'gg',
                              
                         ],
                         'unit_amount' =>  $this->subTotal * 100,
