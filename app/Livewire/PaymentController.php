@@ -13,7 +13,6 @@ class PaymentController extends Component
 {
     public $item;
     public int $subTotal;
-    public $products;
     // ITS A MODAL
 
     #[On('paymentEvent')] 
@@ -27,6 +26,8 @@ class PaymentController extends Component
             $this->subTotal += $item->product->price * $item->quantity;
             $titles[] = $item->product->title;
         }
+        $this->subTotal += 120;
+        $products = implode(',', $titles);
         $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
         $response = $stripe->checkout->sessions->create([
             'line_items' => [
@@ -35,7 +36,7 @@ class PaymentController extends Component
                         'currency' => 'pkr',
                         'product_data' => [
                            
-                            'name' => 'gg',
+                            'name' => $products,
                              
                         ],
                         'unit_amount' =>  $this->subTotal * 100,
