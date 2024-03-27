@@ -9,7 +9,7 @@ use App\Livewire\CheckoutModal;
 use App\Livewire\SuccessOrderModal;
 use App\Livewire\OrdersAdmin;
 use App\Livewire\PaymentController;
-
+use App\Http\Controllers\stripePaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +21,6 @@ use App\Livewire\PaymentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::view('/', 'welcome');
-
-// Route::view('dashboard', 'dashboard')
-//     ->middleware(['auth', 'verified'])
-//     ->name('dashboard');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
@@ -45,8 +39,11 @@ Route::middleware(['auth', 'isAdmin'])->group(function ()
 Route::get('/admin', AdminAccess::class)->middleware(['auth'])->name('admin');
 Route::get('/admin/add', AddProductAdmin::class)->middleware(['auth'])->name('addproduct');
 Route::get('/admin/orders', OrdersAdmin::class)->name('ordersAdmin');
-
 });
+
+
+Route::get('/success', [stripePaymentController::class, 'success'])->name('success');
+Route::get('/cancel', [stripePaymentController::class, 'cancel'])->name('cancel');
 
 
 
