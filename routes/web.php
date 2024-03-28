@@ -8,7 +8,10 @@ use App\Livewire\ShowSingleProduct;
 use App\Livewire\CheckoutModal;
 use App\Livewire\SuccessOrderModal;
 use App\Livewire\OrdersAdmin;
+use App\Livewire\CheckoutModalForOnlinePayment;
 use App\Http\Controllers\stripePaymentController;
+use App\Livewire\Check;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +32,7 @@ Route::get('/', FetchProducts::class)->name('welcome');
 Route::get('/cart', ShoppingCartComponent::class)->middleware(['auth'])->name('cart');
 Route::get('/product/{id}', [ShowSingleProduct::class, 'render'])->name('showProduct');
 
+Route::get('/check', [Check::class, 'hi'])->name('lora');
 
 
 
@@ -40,8 +44,8 @@ Route::get('/admin/orders', OrdersAdmin::class)->name('ordersAdmin');
 });
 
 
-Route::get('/success', [stripePaymentController::class, 'success'])->name('success');
-Route::get('/cancel', [stripePaymentController::class, 'cancel'])->name('cancel');
+// Route::get('/success', [stripePaymentController::class, 'success'])->name('success');
+Route::get('/success', [CheckoutModalForOnlinePayment::class, 'success'])->name('success');
 
 
 
