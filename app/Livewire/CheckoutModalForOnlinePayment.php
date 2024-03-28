@@ -26,6 +26,15 @@ class CheckoutModalForOnlinePayment extends Component
 
     public function processPayment()
     {
+        session([
+            'name' => $this->name,
+            'number' => $this->number,
+            'email' => $this->email,
+            'address' => $this->address,
+            'city' => $this->city,
+            'province' => $this->province,
+            'otherAddressDetails' => $this->otherAddressDetails,
+        ]);
         $this->item = shoppingCart::with('product')->where('user_id', auth()->user()->id)->get();
         $this->subTotal = 0;
         $titles = [];
@@ -72,7 +81,13 @@ class CheckoutModalForOnlinePayment extends Component
     public function success(Request $request)
     {
         // dd($this->name);
-
+        $name = session('name');
+        $number = session('number');
+        $email = session('email');
+        $address = session('address');
+        $city = session('city');
+        $province = session('province');
+        $otherAddressDetails = session('otherAddressDetails');
         $this->item = shoppingCart::with('product')->where('user_id', auth()->user()->id)->get();
         $this->subTotal = 0;
         foreach($this->item as $item)
@@ -89,13 +104,13 @@ class CheckoutModalForOnlinePayment extends Component
                { 
                 $user_id = auth()->user()->id;
                 $order = new Order;        
-                $order->name = $this->name;
-                $order->number = $this->number;
-                $order->address = $this->address;
-                $order->email = $this->email;
-                $order->city = $this->city;
-                $order->province = $this->province;
-                $order->completeAddress = $this->otherAddressDetails;
+                $order->name = $name;
+                $order->number = $number;
+                $order->address = $address;
+                $order->email = $email;
+                $order->city = $city;
+                $order->province = $province;
+                $order->completeAddress = $otherAddressDetails;
                 $order->totalorderprice = $this->subTotal;
                 $order->user_id = $user_id;
                 // $order->payment_type = 'payment successfull';
