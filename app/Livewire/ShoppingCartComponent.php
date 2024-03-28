@@ -12,10 +12,7 @@ class ShoppingCartComponent extends Component
     public $item;
     public $subTotal = 0;
     
-    public function sendPaymentEvent()
-    {
-        $this->dispatch('paymentEvent');
-    }
+  
 
     public function incrementQty($id)
     {

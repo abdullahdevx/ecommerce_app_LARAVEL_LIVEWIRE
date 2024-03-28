@@ -37,7 +37,7 @@ class CheckoutModal extends Component
             $this->totalOrderPrice += $item->product->price * $item->quantity;
         }
         $this->totalOrderPrice += 120;
-        
+
         $order = new Order;        
         $order->name = $this->name;
         $order->number = $this->number;
@@ -48,6 +48,7 @@ class CheckoutModal extends Component
         $order->completeAddress = $this->otherAddressDetails;
         $order->totalorderprice = $this->totalOrderPrice;
         $order->user_id = $user_id;
+        $order->payment_type = 'COD';
         $order->save();
         foreach ($cartItems as $item) {
             $orderItem = new OrderItem;

@@ -8,7 +8,6 @@ use App\Livewire\ShowSingleProduct;
 use App\Livewire\CheckoutModal;
 use App\Livewire\SuccessOrderModal;
 use App\Livewire\OrdersAdmin;
-use App\Livewire\PaymentController;
 use App\Http\Controllers\stripePaymentController;
 
 /*
@@ -30,7 +29,6 @@ Route::get('/', FetchProducts::class)->name('welcome');
 Route::get('/cart', ShoppingCartComponent::class)->middleware(['auth'])->name('cart');
 Route::get('/product/{id}', [ShowSingleProduct::class, 'render'])->name('showProduct');
 
-Route::get('/gandu', PaymentController::class);
 
 
 

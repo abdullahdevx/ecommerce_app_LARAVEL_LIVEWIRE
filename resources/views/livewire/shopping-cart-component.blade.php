@@ -89,7 +89,7 @@
           </div>
           <div>
             <button @click="$dispatch('open-modal')" class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">CHECK OUT (COD)</button>
-            <button wire:click="sendPaymentEvent()" class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">PAY ONLINE</button>
+            <button @click="$dispatch('open-paymentmodal')" class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">PAY ONLINE</button>
 
         
           </div>
@@ -133,7 +133,6 @@
 </div>
 @endif
 <livewire:checkout-modal>
-<livewire:payment-controller>
 <livewire:checkout-modal-for-online-payment>
 
 </div> 
