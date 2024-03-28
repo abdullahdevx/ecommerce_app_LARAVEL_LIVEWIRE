@@ -134,5 +134,6 @@
 @endif
 <livewire:checkout-modal>
 <livewire:payment-controller>
+<livewire:checkout-modal-for-online-payment>
 
 </div> 

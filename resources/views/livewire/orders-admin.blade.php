@@ -13,7 +13,7 @@
     <b>City:</b> {{$orders->city}}<br>
     <b>Provice:</b> {{$orders->Province}}
     <ul>
-       <b> Total Order Price:</b> {{$orders->totalorderprice}} rs <br>
+       <b> Total Order Price:</b> {{number_format($orders->totalorderprice)}} rs <br>
       <b>  PRODUCTS <br></b>
         
         

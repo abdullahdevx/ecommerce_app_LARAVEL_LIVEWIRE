@@ -7,7 +7,6 @@ use App\Models\order;
 use App\Models\shoppingCart;
 use App\Models\OrderItem;
 
-
 class CheckoutModal extends Component
 {
     public $name = '';
@@ -17,7 +16,7 @@ class CheckoutModal extends Component
     public $city = '';
     public $province = '';
     public $otherAddressDetails = '';
-    public $totalOrderPrice = 1;
+    public int $totalOrderPrice = 0;
 
     public function saveOrder()
     {
@@ -33,6 +32,12 @@ class CheckoutModal extends Component
 
         $user_id = auth()->user()->id;
         $cartItems = shoppingCart::with('product')->where('user_id', $user_id)->get();
+        foreach($cartItems as $item)
+        {
+            $this->totalOrderPrice += $item->product->price * $item->quantity;
+        }
+        $this->totalOrderPrice += 120;
+        
         $order = new Order;        
         $order->name = $this->name;
         $order->number = $this->number;
@@ -49,8 +54,8 @@ class CheckoutModal extends Component
             $orderItem->order_id = $order->id;
             $orderItem->product_id = $item->product_id;
             $orderItem->product_quantity = $item->quantity;
-                $orderItem->product_name = $item->product->title;
-                $orderItem->product_image = $item->product->image;
+            $orderItem->product_name = $item->product->title;
+            $orderItem->product_image = $item->product->image;
             // Add any additional info to the order item
             $orderItem->save();
         }
@@ -58,8 +63,6 @@ class CheckoutModal extends Component
         shoppingCart::where('user_id', $user_id)->delete();
         $this->dispatch('success-modal');
     }
-
-
 
     public function render()
     {

@@ -17,7 +17,6 @@ class="fixed z-50 inset-0 backdrop-blur-lg "
    x-transition:leave-start="opacity-100"
    x-transition:leave-end="opacity-0"
    >
-   
     <div class="fixed-center inset-0 bg-gray-500 opacity-300 ">
       
         <div class="bg-white rounded m-auto fixed inset-0 max-w-2xl" style="max-height:700px; max-width:900px; top:5%; left:10%;">
