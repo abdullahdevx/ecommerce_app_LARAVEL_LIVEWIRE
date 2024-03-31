@@ -14,7 +14,9 @@ User can checkout an Alpine.js modal will popup for COD options<br />
 *** ADMIN PANEL ***<br />
 Admin with role = 1 in DATABASE can view admin panel!<br />
 Admin can manage all the orders can see orders and add product and delete and edit products<br />
-
+***ADMIN CREDS*** <br/>
+email: admin@gmail.com <br/>
+password: admin123 <br/>
 
 *** HOW TO RUN THIS PROJECT ON LOCAL HOST ***<br />
 Clone this project in your local computer by using "git clone (repo url)"
@@ -28,5 +30,6 @@ run npm run dev<br />
 migrate the database using "php artisan migrate"
 make sure to change the database creds in .env file<br />
 make sure to migrate the database migrations using (php artisan migrate)<br />
+run php artisan db:seed <br/>
 THIS WHOLE PROJECT WAS COMPLETELY DEVELOPED BY ME!<br />
 *** THANKS FOR READING ***
