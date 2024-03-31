@@ -24,8 +24,5 @@ class shoppingCart extends Model
     return $this->belongsTo(Product::class, 'product_id');
     }
 
-//     public function productRelation()
-//     {
-//         return $this->hasMany(shoppingCart::class);
-//     }
+
 }

@@ -4,7 +4,7 @@ class="fixed z-50 inset-0 backdrop-blur-lg "
 
     x-data = "{ show : false}"
     x-show = "show"
-    x-on:open-modal.window = "show = true"
+    x-on:open-paymentmodal.window = "show = true"
     x-on:keydown.escape.window = "show = false"
 
     x-on:close-modal.window = "show = false"
@@ -28,12 +28,12 @@ class="fixed z-50 inset-0 backdrop-blur-lg "
                 </svg>
               </button>
               </div>
-            <h1 class="mb-8 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-3xl text-center">CHECKOUT</h1>
+            <h1 class="mb-8 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-3xl text-center">CHECKOUT VIA ONLINE PAYMENT</h1>
 
             <div class="flex items-center justify-center">
           
        
-              <form wire:submit="saveOrder()"class="w-full max-w-lg">
+              <form wire:submit="processPayment()" class="w-full max-w-lg">
                 <div class="flex flex-wrap -mx-3 mb-6">
                   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
@@ -115,7 +115,7 @@ class="fixed z-50 inset-0 backdrop-blur-lg "
                   </div> --}}
                 </div>
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                  ORDER
+                  PAY ONLINE
                 </button>
               </form>
       </div>

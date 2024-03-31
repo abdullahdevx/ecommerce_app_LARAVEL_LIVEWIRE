@@ -9,9 +9,9 @@ use App\Models\shoppingCart;
 
 class ShowSingleProduct extends Component
 {
-    public function addtoCart($id)
+    public function addToCart($id)
     {
-       
+       dd('click');
         if(auth()->user())
         {
             //product will be added to Cart

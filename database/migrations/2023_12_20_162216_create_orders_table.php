@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('completeAddress');
             $table->string('city');
             $table->string('Province');
+            $table->string('payment_type');
             $table->float('totalorderprice');
 
 
