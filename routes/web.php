@@ -12,7 +12,6 @@ use App\Livewire\CheckoutModalForOnlinePayment;
 use App\Http\Controllers\stripePaymentController;
 use App\Livewire\Check;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,9 +31,6 @@ Route::get('/', FetchProducts::class)->name('welcome');
 Route::get('/cart', ShoppingCartComponent::class)->middleware(['auth'])->name('cart');
 Route::get('/product/{id}', [ShowSingleProduct::class, 'render'])->name('showProduct');
 
-Route::get('/check', [Check::class, 'hi'])->name('lora');
-
-
 
 Route::middleware(['auth', 'isAdmin'])->group(function ()
 {
@@ -43,10 +39,6 @@ Route::get('/admin/add', AddProductAdmin::class)->middleware(['auth'])->name('ad
 Route::get('/admin/orders', OrdersAdmin::class)->name('ordersAdmin');
 });
 
-
-// Route::get('/success', [stripePaymentController::class, 'success'])->name('success');
 Route::get('/success', [CheckoutModalForOnlinePayment::class, 'success'])->name('success');
-
-
 
 require __DIR__.'/auth.php';

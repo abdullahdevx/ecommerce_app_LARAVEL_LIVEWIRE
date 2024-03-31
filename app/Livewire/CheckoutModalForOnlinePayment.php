@@ -113,7 +113,7 @@ class CheckoutModalForOnlinePayment extends Component
                 $order->completeAddress = $otherAddressDetails;
                 $order->totalorderprice = $this->subTotal;
                 $order->user_id = $user_id;
-                // $order->payment_type = 'payment successfull';
+                $order->payment_type = 'payment successfull';
                 $order->save();
                 foreach ($this->item as $item) {
                     $orderItem = new OrderItem;

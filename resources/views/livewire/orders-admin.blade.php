@@ -11,7 +11,10 @@
     <b>Address:</b> {{$orders->address}}<br>
     <b>Complete Address:</b> {{$orders->completeAddress}}<br>
     <b>City:</b> {{$orders->city}}<br>
-    <b>Provice:</b> {{$orders->Province}}
+    
+    <b>Provice:</b> {{$orders->Province}} <br>
+    <b> Payment Type:</b>    {{$orders->payment_type}} <br>
+
     <ul>
        <b> Total Order Price:</b> {{number_format($orders->totalorderprice)}} rs <br>
       <b>  PRODUCTS <br></b>
@@ -22,9 +25,10 @@
       <b> ORDERED PRODUCTS </b> <br>
         @foreach($orders->orderItemsRelation as $items)
         {{-- <b>   Product ID: {{$items->product_id}} <br></b> --}}
-
          <b> Product Name:</b> {{$items->product_name}} <br>
        <b> Quantity:</b>    {{$items->product_quantity}} <br>
+      
+
         {{-- Picture: {{$items->product_image}} <br> --}}
         <img class="h-[200px] w-[282px]" src="{{ asset('storage/' . $items->product_image) }}" alt="Product" class="justify-center"> <br>
 
